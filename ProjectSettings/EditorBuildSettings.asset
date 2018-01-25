@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/StartMenu.unity
     guid: c3e93283fbef7d044b7b1853b1e6ca87
   - enabled: 1
-    path: Assets/3d.unity
-    guid: bcae13abb02bf914bad7251ea906cf53
-  - enabled: 1
     path: Assets/2d.unity
     guid: 6cc779163a8a4cd47beb1b0f97c8b6bd
+  - enabled: 1
+    path: Assets/3d.unity
+    guid: bcae13abb02bf914bad7251ea906cf53

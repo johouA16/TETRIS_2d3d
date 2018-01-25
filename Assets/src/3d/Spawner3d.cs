@@ -58,7 +58,8 @@ public class Spawner3d : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Debug.Log("call");
+        Debug.Log("call");
+        GameOverFlag.End_flag = false;
         spawnNext();
     }
 

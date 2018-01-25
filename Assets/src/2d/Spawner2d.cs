@@ -61,6 +61,7 @@ public class Spawner2d : MonoBehaviour
     {
         Debug.Log("call");
         GameOverFlag.End_flag = false;
+        //Group2d.fallTime = 1.0;
         spawnNext();
     }
 

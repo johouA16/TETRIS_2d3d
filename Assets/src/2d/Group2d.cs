@@ -143,9 +143,13 @@ public class Group2d : MonoBehaviour
                 FindObjectOfType<Spawner2d>().spawnNext();
 
                 // 落ちるのが早くなるところ
-                if (ScoreText.addFallBlocks() % 10 == 0)
+                if (ScoreText.addFallBlocks() % 20 == 0)
                 {
-                    fallTime -= 0.1;
+                    if(fallTime > 0.6)
+                    {
+                        fallTime -= 0.1;
+                    }
+                   
                     Debug.Log("fallTime ->" + fallTime.ToString());
                 }
 
@@ -188,9 +192,12 @@ public class Group2d : MonoBehaviour
             FindObjectOfType<Spawner2d>().spawnNext();
 
             // 落ちるのが早くなるところ
-            if (ScoreText.addFallBlocks() % 10 == 0)
+            if (ScoreText.addFallBlocks() % 20 == 0)
             {
-                fallTime -= 0.1;
+                if (fallTime > 0.6)
+                {
+                    fallTime -= 0.1;
+                }
                 Debug.Log("fallTime ->" + fallTime.ToString());
             }
 
