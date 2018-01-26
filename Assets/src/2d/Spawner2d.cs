@@ -7,6 +7,9 @@ public class Spawner2d : MonoBehaviour
     // Groups
     public GameObject[] groups;
 
+    public AudioClip holdSE;
+    AudioSource spwaudio;
+
     public static bool hold_flag = false;
     public static bool second_ban = false;
 
@@ -61,6 +64,7 @@ public class Spawner2d : MonoBehaviour
     {
         Debug.Log("call");
         GameOverFlag.End_flag = false;
+        spwaudio = GetComponent<AudioSource>();
         //Group2d.fallTime = 1.0;
         spawnNext();
     }
@@ -69,7 +73,8 @@ public class Spawner2d : MonoBehaviour
     public void Update()
     {
         if (Input.GetKeyUp(KeyCode.H) && second_ban == false && GameOverFlag.End_flag == false)
-        {
+        {          
+          
             if (hold_flag == true)
             {
                 current = CreateMino(holdID);
@@ -88,6 +93,7 @@ public class Spawner2d : MonoBehaviour
                 spawnNext();
                 hold_flag = true;
             }
+            spwaudio.PlayOneShot(holdSE);
             second_ban = true;
         }
     }

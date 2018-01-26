@@ -8,6 +8,9 @@ public class Grope3d : MonoBehaviour
     // Time since last gravity tick
     float lastFall = 0;
 
+    public AudioClip fallSE;
+    AudioSource audiosource;
+
     bool isValidGridPos()
     {
 
@@ -49,6 +52,7 @@ public class Grope3d : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
 
         if (0 <= transform.position.x && transform.position.x <= 6 &&
             0 <= transform.position.z && transform.position.z <= 6 &&
@@ -483,6 +487,7 @@ public class Grope3d : MonoBehaviour
             {
                 // It's not valid. revert.
                 transform.position += new Vector3(0, 1, 0);
+                audiosource.PlayOneShot(fallSE);
 
                 // Clear filled horizontal lines
                 Grid3d.deleteFullRows();
@@ -517,6 +522,7 @@ public class Grope3d : MonoBehaviour
                 {
                     // It's not valid. revert.
                     transform.position += new Vector3(0, 1, 0);
+                    audiosource.PlayOneShot(fallSE);
                     break;
                 }
                 score++;

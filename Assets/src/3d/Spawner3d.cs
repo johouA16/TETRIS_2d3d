@@ -7,6 +7,9 @@ public class Spawner3d : MonoBehaviour
     // Groups
     public GameObject[] groups;
 
+    public AudioClip holdSE;
+    AudioSource spwaudio;
+
     public static bool hold_flag = false;
     public static bool second_ban = false;
 
@@ -76,6 +79,7 @@ public class Spawner3d : MonoBehaviour
             }
 
             hold = CreateMino(currID);
+            spwaudio = GetComponent<AudioSource>();
             hold.transform.position = new Vector3(-20, 40, 5);
             holdID = currID;
 
@@ -84,6 +88,7 @@ public class Spawner3d : MonoBehaviour
                 spawnNext();
                 hold_flag = true;
             }
+            spwaudio.PlayOneShot(holdSE);
             second_ban = true;
         }
     }

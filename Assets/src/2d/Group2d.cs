@@ -9,6 +9,9 @@ public class Group2d : MonoBehaviour
 
     public static double fallTime = 1.0;
 
+    public AudioClip fallSE;
+    AudioSource audiosource;
+
     bool isValidGridPos()
     {
         foreach (Transform child in transform)
@@ -134,6 +137,7 @@ public class Group2d : MonoBehaviour
                 // It's not valid. revert.
                 transform.position += new Vector3(0, 1, 0);
 
+                audiosource.PlayOneShot(fallSE);
                 Spawner2d.second_ban = false;
 
                 // Clear filled horizontal lines
@@ -180,6 +184,7 @@ public class Group2d : MonoBehaviour
             }
             updateGrid();
 
+            audiosource.PlayOneShot(fallSE);
             Spawner2d.second_ban = false;
 
             //スコア加算
@@ -219,13 +224,14 @@ public class Group2d : MonoBehaviour
                 FinishGameBtn.displayFinishBtn();
             }
         }
+        audiosource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(transform.position.x);
-        //fall_sequence();
 
         if (0 <= transform.position.x && transform.position.x <= 9)
         {
