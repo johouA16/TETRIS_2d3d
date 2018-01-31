@@ -31,6 +31,9 @@ public class CameraMove3d : MonoBehaviour
         startTime = Time.timeSinceLevelLoad;
         Border[0].SetActive(false);
         Border[1].SetActive(false);
+        //現在地初期化
+        NowPos = 0;
+        NextPos = 0;
     }
 
     // Update is called once per frame

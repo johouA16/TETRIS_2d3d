@@ -19,6 +19,7 @@ public class Game_Start_End : MonoBehaviour
         gametext.text = "GAME START";
         start_time = Time.time;
         GameOverFlag.End_flag = false;
+        Group2d.fallTime = 1.0;
     }
 
     // Update is called once per frame

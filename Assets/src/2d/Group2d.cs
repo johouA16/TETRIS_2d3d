@@ -6,6 +6,8 @@ public class Group2d : MonoBehaviour
 {
     // Time since last gravity tick
     float lastFall = 0;
+    int fallThreshNum = 20;
+    float underFallVel = (float)0.7;
 
     public static double fallTime = 1.0;
 
@@ -147,9 +149,9 @@ public class Group2d : MonoBehaviour
                 FindObjectOfType<Spawner2d>().spawnNext();
 
                 // 落ちるのが早くなるところ
-                if (ScoreText.addFallBlocks() % 20 == 0)
+                if (ScoreText.addFallBlocks() % fallThreshNum == 0)
                 {
-                    if(fallTime > 0.6)
+                    if(fallTime > underFallVel)
                     {
                         fallTime -= 0.1;
                     }
@@ -197,9 +199,9 @@ public class Group2d : MonoBehaviour
             FindObjectOfType<Spawner2d>().spawnNext();
 
             // 落ちるのが早くなるところ
-            if (ScoreText.addFallBlocks() % 20 == 0)
+            if (ScoreText.addFallBlocks() % fallThreshNum == 0)
             {
-                if (fallTime > 0.6)
+                if (fallTime > underFallVel)
                 {
                     fallTime -= 0.1;
                 }
